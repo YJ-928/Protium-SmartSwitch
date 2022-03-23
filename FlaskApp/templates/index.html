@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PROTIUM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
+    
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    
+</head>
+
+<script>
+	var jsn = {
+		'led1' : 'OFF',
+		'led2' : 'OFF',
+		'led3' : 'OFF',
+		'fan' : 'OFF'
+	}
+// Function to toggle the color of led when called.
+function toggle_state(id)
+{
+	if (id == "led1")
+		if (jsn.led1 == 'OFF')
+			jsn.led1 = 'ON'
+		else
+			jsn.led1 = 'OFF'
+		
+		if (id == "led2")
+			if (jsn.led2 == 'OFF')
+				jsn.led2 = 'ON'
+			else
+				jsn.led2 = 'OFF'
+		
+		if (id == "led3")
+			if (jsn.led3 == 'OFF')
+				jsn.led3 = 'ON'
+			else
+				jsn.led3 = 'OFF'
+			
+		if (id == "fan")
+			if (jsn.fan == 'OFF')
+				jsn.fan = 'ON'
+			else
+				jsn.fan = 'OFF'
+		
+		fetch('/control', {
+			// Declare what type of data we're sending
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			// Specify the method
+			method: 'POST',
+			// A JSON payload
+			body: JSON.stringify(jsn)
+			}).then(function (response) { 
+				// At this point, Flask has printed our JSON
+				return response.text();
+				}).then(function (text) {
+
+					console.log('Message Sent. ');
+					console.log('response: ');
+					// Should be 'OK' if everything was successful
+					console.log(text);
+			});
+}
+console.log("Javascript Working...");
+
+/*    myFunction();
+    function myFunction() {
+        setInterval(function(){
+        jsn.led1 = "{{ led1 }}";
+        console.log(jsn.led1);
+        document.getElementById('led1').style.color = "rgb(221, 221, 0)";
+        
+    }, 2000);
+    }*/
+
+</script>
+<body>
+    <div class="header">
+        <h1>PROTIUM</h1>
+      </div>
+    
+      <div class="row">
+        <div class="column">
+          <div class="card">
+            <i class="fas fa-lightbulb fa-8x" id='led1' onclick="toggle_state('led1')"></i>
+            <h2> LED 1</h2>
+          </div>
+          
+        </div>
+        
+        <div class="column">
+          <div class="card">
+            <i class="fas fa-lightbulb fa-8x" id="led2" onclick="toggle_state('led2')"></i>
+            <h2>LED 2</h2>
+          </div>
+        </div>
+        
+        <div class="column">
+          <div class="card">
+            <i class="fas fa-lightbulb fa-8x"  id="led3" onclick="toggle_state('led3')"></i>
+            <h2>LED 3</h2>
+          </div>
+        </div>
+    
+        <div class="column">
+          <div class="card">
+            <i class="fa fa-thermometer-empty fa-8x" aria-hidden="true" id="fan" onclick="toggle_state('fan')"></i>
+            <h2>FAN</h2>
+          </div>
+        </div>
+      </div>
+    
+</body>
+</html>

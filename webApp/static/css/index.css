@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* Style the header */
+.header {
+    background-color: #f6f6f8;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.row {
+    background-color: #e3e3e3;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    text-align: center;
+    width: 33.33%;
+    padding: 10px;
+}
+
+.card {
+margin: 2px;
+padding: 5px;
+padding-top: 15px;
+border-radius: 15px;
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+transition: 0.3s;
+}
+
+.card h2{
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+color: #c60021;
+}
+
+.card i{
+color: black;
+}
+
+/* Clear floats after the columns */
+.row:after {
+content: "";
+display: table;
+clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+.column {
+    width: 48%;
+}
+}
