@@ -1,7 +1,7 @@
 # Protium-SmartSwitch
 ## My B.E VI Sem Mini Project, A Smart-Switch that ,"Converts a Simple Home To A Smart Home".
 ## Co-Created By 'vb47', "https://github.com/vb47",
-### Demo Video:
+### Demo Video (Download from here):
 https://github.com/YJ-928/Protium-SmartSwitch/blob/main/Demo%20Video/Miniproject6thSem.mp4
 ### A brief summary:
 The era of neverending growth of the internet and its application, smart home system or home automation system is highly increasing to provide comfort in life and improving the quality of life. The main objective of this smart home system is to make human life easy and comfortable by using IOT. Now a day as people are so busy with their work pressure so the will be looking for a smarter life style. Home automation or domotics is building automation for a home, called a smart home or smart house. A home automation system will control lighting, climate, entertainment systems, and appliances. It may also include home security such as
